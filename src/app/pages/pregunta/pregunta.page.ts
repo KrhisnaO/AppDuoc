@@ -136,5 +136,8 @@ export class PreguntaPage implements OnInit, AfterViewInit {
       });
     toast.present();
   }
+  public login() : void{
+    this.router.navigate(['/login'])
+  }
 }
 

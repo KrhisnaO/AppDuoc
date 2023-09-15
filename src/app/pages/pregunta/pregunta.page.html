@@ -17,9 +17,10 @@
       <ion-title size="large">pregunta</ion-title>
     </ion-toolbar>
   </ion-header>
+
   <div style="height: 80%; display: flex; align-items: center; justify-content:center;">
-    <ion-card class="colorcard1">
-      <ion-card-title class="ion-padding-top">
+    <ion-card class="colorcard1 ion-text-center">
+      <ion-card-title class="azul ion-padding-top">
         <ion-label class="ion-text-center">
           <h1 class="azul">¡Bienvenido!</h1>
           <br>
@@ -39,10 +40,11 @@
             <ion-input name="respuesta" label="Respuesta" labelPlacement="floating" type="text" [(ngModel)]="usuario.respuesta"></ion-input>
           </ion-item>
           <br>
-          <ion-button class="botonduoc" shape="block" (click)="ingresar()">Ingresar</ion-button>
+          <ion-button class="botonduoc" (click)="ingresar()">Recuperar contraseña</ion-button>
+          <br>
+          <a class="azul" routerLink="" (click)="login()">Iniciar sesión</a>
         </ion-card-content>
       </form>
-      
     </ion-card>
   </div>
 </ion-content>
