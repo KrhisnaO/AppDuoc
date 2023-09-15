@@ -22,7 +22,11 @@
       <ion-card-title class="ion-padding-top">
         <ion-label class="ion-text-center">
           <h1 class="azul">¡Bienvenido!</h1>
-          <h4 class="azul" *ngIf="usuario">Usuario: {{ usuario.nombre }} {{usuario.apellido}}</h4>
+          <br>
+          <h2 class="azul">Paso 2: Responde la pregunta secreta</h2>
+          
+          <br>
+          <h4 class="azul" *ngIf="usuario"> {{ usuario.nombre }} {{usuario.apellido}}</h4>
           <h4 class="azul"> Por favor responda</h4>
           <h4 class="azul" *ngIf="usuario">{{usuario.pregunta}}</h4>
         </ion-label>
@@ -32,12 +36,13 @@
         <!-- Contenido del card -->
         <ion-card-content>
           <ion-item class="ingrdat">
-            <ion-input name="respuesta" label="respuesta" labelPlacement="floating" type="text" [(ngModel)]="usuario.respuesta"></ion-input>
+            <ion-input name="respuesta" label="Respuesta" labelPlacement="floating" type="text" [(ngModel)]="usuario.respuesta"></ion-input>
           </ion-item>
-          
+          <br>
           <ion-button class="botonduoc" shape="block" (click)="ingresar()">Ingresar</ion-button>
         </ion-card-content>
       </form>
+      
     </ion-card>
   </div>
 </ion-content>
