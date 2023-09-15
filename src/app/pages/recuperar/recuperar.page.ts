@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, NavigationExtras } from '@angular/router'; // Permite navegar y pasar parámetros extra entre páginas
 import { ToastController } from '@ionic/angular'; // Permite mostrar mensajes emergente
+import { AlertController } from '@ionic/angular';
 import { Usuario } from 'src/app/model/Usuario';
 
 @Component({
@@ -28,9 +29,9 @@ export class RecuperarPage implements OnInit {
   // permite compartir una única instancia de dicho objeto en el resto de las páginas que lo usen. Lo
   // anterior es especialmente importante para mantener la coherencia y estados compartidos en los Servicios.
   
-  constructor(private router: Router, private toastController: ToastController) {
+  constructor(private router: Router, private toastController: ToastController, private alertController: AlertController) {
     this.usuario = new Usuario('', '', '', '', '','')
-    this.usuario.correo = 'atorres@duocuc.cl'
+    this.usuario.correo = ''
     // Puedes descomentar cualquiera de los siguientes usuarios, para 
     // hacer tus pruebas y así no tener que digitarlos a cada rato
 
@@ -55,17 +56,29 @@ export class RecuperarPage implements OnInit {
     
     //if (this.usuario.correo !== '') this.ingresar();
   }
+  public async presentAlert(titulo: string, mensaje: string) {
+    const alert = await this.alertController.create({
+      header: titulo,
+      message: mensaje,
+      buttons: ['OK']
+    });
+
+    await alert.present();
+  }
 
   public ingresar(): void {
     
     if (this.usuario) {
+
+
       
       // Validamos el usuario y si hay error no navegaremos a la página Home
       const mensajeError = this.usuario.validarCorreo();
       if (mensajeError) {
-        this.mostrarMensaje(mensajeError);
+        this.mostrarMensaje(`Ingrese un correo`);
         return;
       }
+      
 
       // Como la página sólo permite ingresar el correo y la password, vamos a buscar el usuario para completar sus datos
       const usu: Usuario | undefined = this.usuario.recuperarContra(this.usuario.correo);
@@ -80,9 +93,17 @@ export class RecuperarPage implements OnInit {
         this.mostrarMensaje(`¡Por favor responda la pregunta ${usu.nombre} ${usu.apellido}!`);
         this.router.navigate(['/pregunta'], navigationExtras); // Navegamos hacia el Home y enviamos la información extra
       }
+      
     }
+    
   }
 
+
+
+
+
+
+  
   async mostrarMensaje(mensaje: string, duracion?: number) {
     // Permite mostrar un mensaje emergente que dura unos pocos segundos y desaparece. El mensaje es asincrónico, 
     // los que permite que el mensaje se pueda ver incluso cuando ya ha cambiado a la siguiente página.
