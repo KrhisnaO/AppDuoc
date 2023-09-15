@@ -96,8 +96,8 @@ export class RecuperarPage implements OnInit {
   public recuperar() : void{
     this.router.navigate(['/recuperar'])
   }
-  public home() : void{
-    this.router.navigate(['/home'])
+  public login() : void{
+    this.router.navigate(['/login'])
   }
 
 }
