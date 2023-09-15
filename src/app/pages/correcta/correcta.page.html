@@ -12,22 +12,24 @@
 </ion-header>
 
 <ion-content class="background" [fullscreen]="true">
-  <ion-card class="colorcard1">
-    <ion-card-title class="ion-padding-top">
-      <ion-label class="ion-text-center">
-        <!--imagen-->
-        <h1 class="cambiacolor">¡Bienvenido!</h1>
-        <p class="cambiacolor" *ngIf="usuario">Usuario: {{ usuario.nombre }} {{usuario.apellido}}</p>
-        <h4 class="cambiacolor">Tu contraseña es: {{usuario.password}}</h4>
-      </ion-label>
-    </ion-card-title>
-    <ion-card-content>
-      <div class="ion-text-center">
-        <ion-img class="imagena" src="assets/img/manos.png"></ion-img>
+  <div style="height: 80%; display: flex; align-items: center; justify-content:center;">
+    <ion-card class="colorcard1">
+      <div style="display: flex; align-items: center; justify-content:center;">
+        <ion-img class="imagena ion-padding-vertical" src="assets/img/fotocorrect.png"></ion-img>
       </div>
-      <ion-button shape="block" (click)="home()">Ingresar</ion-button>
-    </ion-card-content>
-  </ion-card>
+      <ion-card-title>
+        <ion-label class="ion-text-center">
+          <!--imagen-->
+          <h1 class="azul">¡Bienvenido!</h1>
+          <h4 class="azul" *ngIf="usuario">Usuario: {{ usuario.nombre }} {{usuario.apellido}}</h4>
+          <h4 class="azul">Tu contraseña es: {{usuario.password}}</h4>
+        </ion-label>
+      </ion-card-title>
+      <ion-card-content class="ion-text-center">
+        <ion-button class="botonduoc ion-auto" (click)="home()">Ingresar</ion-button>
+      </ion-card-content>
+    </ion-card>
+  </div>
   <ion-header collapse="condense">
     <ion-toolbar>
       <ion-title size="large">home</ion-title>
