@@ -149,7 +149,10 @@ export class HomePage implements OnInit, AfterViewInit {
 
   public mostrarDatosQROrdenados(datosQR: string): void {
     this.datosQR = datosQR;
+    
     const objetoDatosQR = JSON.parse(datosQR);
+
+
     // ----------------------------------
     // TAREA PARA COMPLETAR POR EL ALUMNO
     // ----------------------------------
