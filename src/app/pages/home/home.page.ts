@@ -152,7 +152,6 @@ export class HomePage implements OnInit, AfterViewInit {
     
     const objetoDatosQR = JSON.parse(datosQR);
 
-
     // ----------------------------------
     // TAREA PARA COMPLETAR POR EL ALUMNO
     // ----------------------------------
