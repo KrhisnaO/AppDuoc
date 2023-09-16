@@ -27,8 +27,7 @@
           <h2 class="azul">Paso 2: Responde la pregunta secreta</h2>
           
           <br>
-          <h4 class="azul" *ngIf="usuario"> {{ usuario.nombre }} {{usuario.apellido}}</h4>
-          <h4 class="azul"> Por favor responda</h4>
+          <h2 class="azul" *ngIf="usuario"> {{ usuario.nombre }} {{usuario.apellido}}</h2>
           <h4 class="azul" *ngIf="usuario">{{usuario.pregunta}}</h4>
         </ion-label>
       </ion-card-title>

@@ -33,13 +33,12 @@
           <ion-item class="ingrdat">
             <ion-input name="password"  label="Contraseña" labelPlacement="floating" type="password" [(ngModel)]="usuario.password"></ion-input>
           </ion-item>
+          <br>
           <ion-button class="botonduoc ion-auto" (click)="ingresar()">Ingresar</ion-button>
 
         </ion-card-content>
       </form>
-      
       <ion-label>
-        <br>
         <a class="azul" routerLink="" (click)="recuperar()">Recupera tu contraseña</a>
         
       </ion-label>
