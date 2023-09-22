@@ -6,6 +6,7 @@ import { Usuario } from 'src/app/model/Usuario';
 import { Asistencia } from 'src/app/model/asistencia';
 import jsQR, { QRCode } from 'jsqr';
 
+
 @Component({
   selector: 'app-home',
   templateUrl: './home.page.html',
@@ -20,7 +21,7 @@ export class HomePage implements OnInit, AfterViewInit {
   @ViewChild('canvas')
   private canvas!: ElementRef;
 
-  public asistencia: Asistencia = new Asistencia();
+  public asistencia: Asistencia;
   public escaneando = false;
   public datosQR: string = '';
   public usuario: Usuario;
@@ -31,6 +32,7 @@ export class HomePage implements OnInit, AfterViewInit {
       , private animationController: AnimationController) { // Permite crear animaciones con  
 
     this.usuario = new Usuario('', '', '', '', '', '',);
+    this.asistencia = new Asistencia();
 
     // Se llama a la ruta activa y se obtienen sus parámetros mediante una subscripcion
     this.activeroute.queryParams.subscribe(params => { 
@@ -140,6 +142,7 @@ export class HomePage implements OnInit, AfterViewInit {
     if (qrCode) {
       if (qrCode.data !== '') {
         this.escaneando = false;
+
         this.mostrarDatosQROrdenados(qrCode.data);
         return true;
       }
@@ -151,6 +154,17 @@ export class HomePage implements OnInit, AfterViewInit {
     this.datosQR = datosQR;
     
     const objetoDatosQR = JSON.parse(datosQR);
+    this.asistencia.sede = JSON.parse(datosQR).sede;
+    this.asistencia.idAsignatura = JSON.parse(datosQR).idAsignatura;
+    this.asistencia.seccion = JSON.parse(datosQR).seccion;
+    this.asistencia.nombreAsignatura = JSON.parse(datosQR).nombreAsignatura;
+    this.asistencia.nombreProfesor = JSON.parse(datosQR).nombreProfesor;
+    this.asistencia.dia = JSON.parse(datosQR).dia;
+    this.asistencia.bloqueInicio = JSON.parse(datosQR).bloqueInicio;
+    this.asistencia.bloqueTermino = JSON.parse(datosQR).bloqueTermino;
+    this.asistencia.horaInicio = JSON.parse(datosQR).horaInicio;
+    this.asistencia.horaFin = JSON.parse(datosQR).horaFin;
+
 
 
     

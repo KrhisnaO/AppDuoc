@@ -42,7 +42,48 @@
           
           <ion-card-content class="borde">
             <h2 *ngIf="datosQR">
-              {{ datosQR }}
+              <ion-grid fixed>
+                <ion-row style="text-align: center;">
+                  <ion-col size="6" class="datos">Sede:</ion-col>
+                  <ion-col size="6" class="datos">{{this.asistencia.sede}}</ion-col>
+                </ion-row>
+                <ion-row style="text-align: center;">
+                  <ion-col size="6" class="datos">Sigla:</ion-col>
+                  <ion-col size="6" class="datos">{{this.asistencia.idAsignatura}}</ion-col>
+                </ion-row>
+                <ion-row style="text-align: center;">
+                  <ion-col size="6" class="datos">Sección:</ion-col>
+                  <ion-col size="6" class="datos">{{this.asistencia.seccion}}</ion-col>
+                </ion-row>
+                <ion-row style="text-align: center;">
+                  <ion-col size="6" class="datos">Nombre asignatura:</ion-col>
+                  <ion-col size="6" class="datos">{{this.asistencia.nombreAsignatura}}</ion-col>
+                </ion-row>
+                <ion-row style="text-align: center;">
+                  <ion-col size="6" class="datos">Nombre profesor:</ion-col>
+                  <ion-col size="6" class="datos">{{this.asistencia.nombreProfesor}}</ion-col>
+                </ion-row>
+                <ion-row style="text-align: center;">
+                  <ion-col size="6" class="datos">Día:</ion-col>
+                  <ion-col size="6" class="datos">{{this.asistencia.dia}}</ion-col>
+                </ion-row>
+                <ion-row style="text-align: center;">
+                  <ion-col size="6" class="datos">Bloque de inicio:</ion-col>
+                  <ion-col size="6" class="datos">{{this.asistencia.bloqueInicio}}</ion-col>
+                </ion-row>
+                <ion-row style="text-align: center;">
+                  <ion-col size="6" class="datos">Bloque de término:</ion-col>
+                  <ion-col size="6" class="datos">{{this.asistencia.bloqueTermino}}</ion-col>
+                </ion-row>
+                <ion-row style="text-align: center;">
+                  <ion-col size="6" class="datos">Hora de inicio:</ion-col>
+                  <ion-col size="6" class="datos">{{this.asistencia.horaInicio}}</ion-col>
+                </ion-row>
+                <ion-row style="text-align: center;">
+                  <ion-col size="6" class="datos">Hora de término:</ion-col>
+                  <ion-col size="6" class="datos">{{this.asistencia.horaFin}}</ion-col>
+                </ion-row>
+              </ion-grid>
             </h2>
             <h2 *ngIf="!datosQR">
               Sin información
