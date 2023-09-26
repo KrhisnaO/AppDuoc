@@ -92,18 +92,6 @@ export class PreguntaPage implements OnInit, AfterViewInit {
     if(!this.validarUsuario(this.usuario)) {
       return;
     }
-
-
-
-    /*
-      Se declara e instancia un objeto de la clase NavigationExtras, para poder pasarle parámetros a la página home.
-      Al objeto json "state" se le asigna un objeto con nombre de clave "login" y el valor "this.login", de modo que
-      le pase la cuenta de usuario y su password a la página home.
-
-      Nótese que al enviar this.login, realmente se está enviando los valores que el usuario digitó en las cajas de input,
-      pues gracias a la directiva [(ngModel)]="login.usuario", el programa sabe que hay una relación directa de unión entre
-      el valor de la propiedad login.usuario y el valor del control gráfico que lleva este mismo nombre.
-    */
    
     const navigationExtras: NavigationExtras = {
       state: {

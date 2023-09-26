@@ -75,7 +75,7 @@ export class RecuperarPage implements OnInit {
       // Validamos el usuario y si hay error no navegaremos a la página Home
       const mensajeError = this.usuario.validarCorreo();
       if (mensajeError) {
-        this.mostrarMensaje(`Ingrese un correo`);
+        this.mostrarMensaje(`Ingrese un correo valido`);
         return;
       }
       
@@ -93,8 +93,10 @@ export class RecuperarPage implements OnInit {
         this.mostrarMensaje(`¡Por favor responda la pregunta ${usu.nombre} ${usu.apellido}!`);
         this.router.navigate(['/pregunta'], navigationExtras); // Navegamos hacia el Home y enviamos la información extra
       }
-      
-    }
+      else{
+        this.mostrarMensaje('correo no existe');
+      }
+    };
     
   }
 

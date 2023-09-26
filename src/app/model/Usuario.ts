@@ -50,9 +50,10 @@ export class Usuario {
     if (this.correo.trim() === '') {
       return 'Debe ingresar un nombre de usuario.';
     }
-    if (this.correo.length < 3) {
+    if (this.correo.length <= 3 ) {
       return 'El nombre de usuario debe tener más de 3 caracteres.';
     }
+
     return '';
   }
 

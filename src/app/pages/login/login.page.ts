@@ -80,6 +80,9 @@ export class LoginPage implements OnInit {
         this.mostrarMensaje(`¡Bienvenido(a) ${usu.nombre} ${usu.apellido}!`);
         this.router.navigate(['/home'], navigationExtras); // Navegamos hacia el Home y enviamos la información extra
       }
+      else{
+        this.mostrarMensaje('Por favor revise correo o contraseña');
+      }
     }
   }
 
