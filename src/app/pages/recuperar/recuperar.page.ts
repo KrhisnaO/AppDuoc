@@ -94,7 +94,7 @@ export class RecuperarPage implements OnInit {
         this.router.navigate(['/pregunta'], navigationExtras); // Navegamos hacia el Home y enviamos la información extra
       }
       else{
-        this.mostrarMensaje('correo no existe');
+        this.router.navigate(['/incorrecta'])
       }
     };
     
