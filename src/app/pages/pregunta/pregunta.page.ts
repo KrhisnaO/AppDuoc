@@ -17,7 +17,7 @@ export class PreguntaPage implements OnInit, AfterViewInit {
 
   public usuario: Usuario;
 
-   constructor(
+  constructor(
         private activeroute: ActivatedRoute // Permite obtener los parámetros de la página login
       , private router: Router // Permite navegar entre páginas
       , private alertController: AlertController // Permite mostrar mensajes emergentes más complejos que Toast
@@ -47,25 +47,6 @@ export class PreguntaPage implements OnInit, AfterViewInit {
     });
   }
 
-  public ngOnInit(): void {
-
-  }
-
-
-  public ngAfterViewInit(): void {
-    if (this.itemTitulo) {
-      const animation = this.animationController
-        .create()
-        .addElement(this.itemTitulo.nativeElement)
-        .iterations(1)
-        .duration(3000)
-        .fromTo('transform', 'translate(0%)', 'translate(45%)')
-        .fromTo('opacity', 0.2, 1);
-
-      animation.play();
-    }
-  }
-
   public animateItem(elementRef: any) {
     this.animationController
       .create()
@@ -74,6 +55,24 @@ export class PreguntaPage implements OnInit, AfterViewInit {
       .duration(600)
       .fromTo('transform', 'translate(100%)', 'translate(0%)')
       .play();
+  }
+
+
+  public ngOnInit(): void {
+  }
+
+  public ngAfterViewInit(): void {
+    if (this.itemTitulo) {
+      const animation = this.animationController
+        .create()
+        .addElement(this.itemTitulo.nativeElement)
+        .iterations(Infinity)
+        .duration(3000)
+        .fromTo('transform', 'translate(-100%)', 'translate(100%)')
+        .fromTo('opacity', 1, 1);
+
+      animation.play();
+    }
   }
 
 

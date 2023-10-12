@@ -1,7 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ElementRef, ViewChild} from '@angular/core';
 import { Router, NavigationExtras } from '@angular/router'; // Permite navegar y pasar parámetros extra entre páginas
 import { ToastController } from '@ionic/angular'; // Permite mostrar mensajes emergente
 import { AlertController } from '@ionic/angular';
+import { AnimationController} from '@ionic/angular';
 import { Usuario } from 'src/app/model/Usuario';
 
 @Component({
@@ -10,6 +11,9 @@ import { Usuario } from 'src/app/model/Usuario';
   styleUrls: ['./recuperar.page.scss'],
 })
 export class RecuperarPage implements OnInit {
+  @ViewChild('titulo', { read: ElementRef }) itemTitulo!: ElementRef;
+    @ViewChild('video')
+  private video!: ElementRef;
 
   // CGV: La clase typescript "LoginPage" es la encargada de implementar las reglas de negocio de la página.
   // Las propiedades del archivo typescript pueden intercambiar valores con los elementos HTML, por medio
@@ -29,7 +33,7 @@ export class RecuperarPage implements OnInit {
   // permite compartir una única instancia de dicho objeto en el resto de las páginas que lo usen. Lo
   // anterior es especialmente importante para mantener la coherencia y estados compartidos en los Servicios.
   
-  constructor(private router: Router, private toastController: ToastController, private alertController: AlertController) {
+  constructor(private router: Router, private toastController: ToastController, private alertController: AlertController, private animationController: AnimationController) {
     this.usuario = new Usuario('', '', '', '', '','')
     this.usuario.correo = ''
     // Puedes descomentar cualquiera de los siguientes usuarios, para 
@@ -47,6 +51,29 @@ export class RecuperarPage implements OnInit {
     // this.usuario.setUsuario('correo.malo@', '0987');
     // this.usuario.setUsuario('correo.malo@duocuc', '0987');
     // this.usuario.setUsuario('correo.malo@duocuc.', '0987');
+  }
+  public animateItem(elementRef: any) {
+    this.animationController
+      .create()
+      .addElement(elementRef)
+      .iterations(1)
+      .duration(600)
+      .fromTo('transform', 'translate(100%)', 'translate(0%)')
+      .play();
+  }
+
+  public ngAfterViewInit(): void {
+    if (this.itemTitulo) {
+      const animation = this.animationController
+        .create()
+        .addElement(this.itemTitulo.nativeElement)
+        .iterations(Infinity)
+        .duration(3000)
+        .fromTo('transform', 'translate(-100%)', 'translate(100%)')
+        .fromTo('opacity', 1, 1);
+
+      animation.play();
+    }
   }
 
   public ngOnInit(): void {
